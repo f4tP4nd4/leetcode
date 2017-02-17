@@ -11,11 +11,11 @@ class Solution(object):
         map = collections.defaultdict(int)
         for c in s:
             map[c] += 1
-        isEvenStr = (len(s)%2==0)
+        flag = False
         for i in map:
-            if map[i]%2==1 and not isEvenStr:
-                isEvenStr = True
-                continue
-            if map[i]%2==1:
+            if map[i]%2==1 and flag:
                 return False
+            if map[i]%2==1:
+                flag = True
         return True
+            
