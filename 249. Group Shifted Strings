@@ -1,0 +1,18 @@
+class Solution(object):
+    def groupStrings(self, strings):
+        """
+        :type strings: List[str]
+        :rtype: List[List[str]]
+        """
+        ans = {}
+        for s in strings:
+            key = ""
+            for i in xrange(1,len(s)):
+                c,prev = s[i],s[i-1]
+                key += chr(((ord(c)-ord(prev)+26)%26)+ord('0'))
+            if key not in ans:
+                ans[key] = []
+            ans[key] += s,
+        return ans.values()
+        
+# refer https://discuss.leetcode.com/topic/29725/concise-10-lines-java-solution-with-explanation/5T
