@@ -1,0 +1,21 @@
+import collections
+class Solution(object):
+    def canPermutePalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        #the logic here to store the count of the characters in a map, two cases arise 
+        #1. n = even, if all the char are even in count 
+        #2. n = even, if exactly one char has odd count and rest all are even in count
+        map = collections.defaultdict(int)
+        for c in s:
+            map[c] += 1
+        isEvenStr = (len(s)%2==0)
+        for i in map:
+            if map[i]%2==1 and not isEvenStr:
+                isEvenStr = True
+                continue
+            if map[i]%2==1:
+                return False
+        return True
