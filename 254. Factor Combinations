@@ -1,0 +1,16 @@
+class Solution(object):
+    def getFactors(self, n):
+        """
+        :type n: int
+        :rtype: List[List[int]]
+        """
+        stack = [(n,2,[])]
+        ans = []
+        while stack:
+            n,i,path = stack.pop()
+            while i*i<=n:
+                if n%i==0:
+                    ans += path+[i,n/i],
+                    stack += (n/i,i,path+[i]),
+                i+=1
+        return ans
