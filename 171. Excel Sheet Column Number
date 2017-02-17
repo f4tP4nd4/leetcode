@@ -1,0 +1,13 @@
+class Solution(object):
+    def titleToNumber(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        ans = 0
+        mulfactor = 1
+        for c in s[::-1]:
+            val = ord(c)-ord('A')+1
+            ans += mulfactor*val
+            mulfactor *= 26
+        return ans
