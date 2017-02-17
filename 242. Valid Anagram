@@ -1,0 +1,22 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        n = len(s)
+        m = len(t)
+        if n!=m:return False
+        map = {}
+        for i in xrange(n):
+            if s[i] not in map:
+                map[s[i]] = 0
+            if t[i] not in map:
+                map[t[i]] = 0
+            map[s[i]]+=1
+            map[t[i]]-=1
+        for i in map:
+            if map[i]!=0:
+                return False
+        return True
