@@ -1,0 +1,15 @@
+class Solution(object):
+    def generate(self, numRows):
+        """
+        :type numRows: int
+        :rtype: List[List[int]]
+        """
+        if numRows == 0: return []
+        res = [[1]]
+        for i in range(2,numRows+1):
+            temp = [1]
+            for j in xrange(1,i-1):
+                temp += res[-1][j]+res[-1][j-1],
+            temp += 1,
+            res += temp,
+        return res
