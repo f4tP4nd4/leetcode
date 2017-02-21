@@ -1,0 +1,18 @@
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        freq = [0 for i in xrange(26)]
+        n = len(s)
+        res = -1
+        for i in xrange(n):
+            c = s[i]
+            freq[ord(c)-ord('a')]+=1
+        
+        for i in xrange(n):
+            c = s[i]
+            if freq[ord(c)-ord('a')]==1:
+                return i
+        return res
